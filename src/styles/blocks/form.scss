@@ -1,0 +1,81 @@
+.form-field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 0 0 10px;
+
+  border: none;
+  border-bottom: 1px solid #bdbdbd;
+  background: #e4dfd3;
+
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: 400;
+  color: $lightGrayrayColor;
+
+  transition: all $transitionTime;
+
+  -webkit-box-shadow: 0 0 0 1000px $backgroundColor inset;
+  box-shadow: 0 0 0 1000px $backgroundColor inset;
+
+  @include onDesktop {
+    font-size: 18px;
+    line-height: 150%;
+    font-weight: 500;
+  }
+
+  &::placeholder {
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    line-height: 150%;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: $lightGrayrayColor;
+
+    @include onDesktop {
+      font-size: 18px;
+      line-height: 150%;
+      font-weight: 500;
+    }
+  }
+
+  &:valid {
+    -webkit-text-fill-color: $darkGreenColor;
+
+    color: $darkGreenColor;
+    border-color: $darkGreenColor;
+    font-weight: 500;
+  }
+
+  &:focus,
+  &:hover {
+    outline: transparent;
+    border-bottom-color: $darkGrayColor;
+    background: #e4dfd3;
+  }
+
+  &:not(:focus) {
+    &:not(:placeholder-shown):invalid {
+      -webkit-text-fill-color: #eb5757;
+
+      color: #eb5757;
+      font-weight: 500;
+      border-bottom: 1px solid #eb5757;
+    }
+  }
+
+  &--textarea {
+    resize: none;
+    margin-top: 45px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    @include onDesktop {
+      margin-top: 60px;
+    }
+  }
+}
